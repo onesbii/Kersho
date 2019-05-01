@@ -73,3 +73,5 @@ public class OrdersActivity extends AppCompatActivity implements BottomNavigatio
         return false;
     }
 }
+
+//TODO: refresh layout "https://www.youtube.com/watch?v=K0-e5vfmzbA&list=PLk7v1Z2rk4hhYrhtRtAX2zVm-FHV38-TQ&index=3"

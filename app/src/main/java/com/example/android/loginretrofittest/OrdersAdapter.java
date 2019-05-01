@@ -16,14 +16,21 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     private Context mContext;
 //TODO replace 'User' with 'OrdersItem'
     //private List<OrdersItem> OrdersList;
-    private List<Dishes> dishesList;
+    private List<Orders> ordersList;
+//    private List<Dishes> dishesList;
 //TODO replace 'User' with 'OrdersItem'
 
 
-    public OrdersAdapter(Context mContext, List<Dishes> mDishesList) {
+    public OrdersAdapter(Context mContext, List<Orders> mOrdersList) {
         this.mContext = mContext;
-        this.dishesList = mDishesList;
+        this.ordersList = mOrdersList;
     }
+
+
+//    public OrdersAdapter(Context mContext, List<Dishes> mDishesList) {
+//        this.mContext = mContext;
+//        this.dishesList = mDishesList;
+//    }
 
     @NonNull
     @Override
@@ -36,35 +43,51 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     public void onBindViewHolder(@NonNull OrdersViewHolder ordersViewHolder, int position) {
 
         //TODO comment name and uncomment orders
-        Dishes dishes = dishesList.get(position);
+        Orders orders = ordersList.get(position);
+//        Dishes dishes = dishesList.get(position);
 
 //        User user = mOrdersList.get(position);
 //
-        ordersViewHolder.textViewDishType.setText(dishes.getType());
-        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
-        ordersViewHolder.textViewDishLocation.setText(dishes.getLocation());
+
+        ordersViewHolder.textViewOrderId.setText(orders.getOrderId());
+        ordersViewHolder.textViewLocation.setText(orders.getLocation());
+        ordersViewHolder.textViewSubtotal.setText(orders.getSubtotal());
+
+//        ordersViewHolder.textViewDishType.setText(dishes.getType());
+//        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
+//        ordersViewHolder.textViewDishLocation.setText(dishes.getLocation());
 
     }
 
     @Override
     public int getItemCount() {
 
-        return dishesList.size();
+        return ordersList.size();
+//        return dishesList.size();
     }
 
     public class OrdersViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView textViewDishType;
-        public TextView textViewDishName;
-        public TextView textViewDishLocation;
+        public TextView textViewOrderId;
+        public TextView textViewLocation;
+        public TextView textViewSubtotal;
+
+//        public TextView textViewDishType;
+//        public TextView textViewDishName;
+//        public TextView textViewDishLocation;
 
 
         public OrdersViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewDishType = itemView.findViewById(R.id.textViewDishType);
-            textViewDishName = itemView.findViewById(R.id.textViewDishName);
-            textViewDishLocation = itemView.findViewById(R.id.textViewDishLocation);
+            textViewOrderId = itemView.findViewById(R.id.textViewOrderId);
+            textViewLocation = itemView.findViewById(R.id.textViewLocation);
+            textViewSubtotal = itemView.findViewById(R.id.textViewSubtotal);
+
+
+//            textViewDishType = itemView.findViewById(R.id.textViewDishType);
+//            textViewDishName = itemView.findViewById(R.id.textViewDishName);
+//            textViewDishLocation = itemView.findViewById(R.id.textViewDishLocation);
 
         }
     }

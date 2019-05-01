@@ -14,12 +14,20 @@ public interface JsonPlaceHolderApi {
             @Field("password") String password
     );
 
+
     @FormUrlEncoded
-    @POST("get_menu")
+    @POST("get_kitchen_current_orders")
     Call<OrdersItem> getOrders(
-            @Field("type") String type,
-            @Field("location") String location
+            @Field("kitchen") int kitchen
     );
+
+
+//    @FormUrlEncoded
+//    @POST("get_menu")
+//    Call<OrdersItem> getOrders(
+//            @Field("type") String type,
+//            @Field("location") String location
+//    );
 
 
  /*

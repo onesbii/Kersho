@@ -22,7 +22,8 @@ public class CurOrdersFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private OrdersAdapter ordersAdapter;
-    private List<Dishes> dishesList;
+    private List<Orders> ordersList;
+//    private List<Dishes> dishesList;
 
 
     @Nullable
@@ -39,15 +40,18 @@ public class CurOrdersFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders("Main Dish", "Nasr City");
+//        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders("Main Dish", "Maadi");
+        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders(4);
         call.enqueue(new Callback<OrdersItem>() {
 
             @Override
             public void onResponse(Call<OrdersItem> call, Response<OrdersItem> response) {
 
 
-                dishesList = response.body().getDishes();
-                ordersAdapter = new OrdersAdapter(getActivity(), dishesList);
+//                dishesList = response.body().getDishes();
+//                ordersAdapter = new OrdersAdapter(getActivity(), dishesList);
+                ordersList = response.body().getOrders();
+                ordersAdapter = new OrdersAdapter(getActivity(), ordersList);
                 recyclerView.setAdapter(ordersAdapter);
 
             }

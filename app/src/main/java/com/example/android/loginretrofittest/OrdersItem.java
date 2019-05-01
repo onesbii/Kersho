@@ -7,13 +7,23 @@ import java.util.List;
 
 public class OrdersItem {
 
-    private List<Dishes> dishes;
+    private List<Orders> orders;
 
-    public OrdersItem(List<Dishes> dishes) {
-        this.dishes = dishes;
+    public OrdersItem(List<Orders> orders) {
+        this.orders = orders;
     }
 
-    public List<Dishes> getDishes() {
-        return dishes;
+    public List<Orders> getOrders() {
+        return orders;
     }
+
+    //    private List<Dishes> dishes;
+//
+//    public OrdersItem(List<Dishes> dishes) {
+//        this.dishes = dishes;
+//    }
+//
+//    public List<Dishes> getDishes() {
+//        return dishes;
+//    }
 }
