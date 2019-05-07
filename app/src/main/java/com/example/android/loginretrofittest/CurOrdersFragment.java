@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -41,11 +42,11 @@ public class CurOrdersFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 //        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders("Main Dish", "Maadi");
-        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders(4);
-        call.enqueue(new Callback<OrdersItem>() {
+        Call<KitchenOrders> call = RetrofitClient.getInstance().getApi().getOrders(3);
+        call.enqueue(new Callback<KitchenOrders>() {
 
             @Override
-            public void onResponse(Call<OrdersItem> call, Response<OrdersItem> response) {
+            public void onResponse(Call<KitchenOrders> call, Response<KitchenOrders> response) {
 
 
 //                dishesList = response.body().getDishes();
@@ -57,7 +58,9 @@ public class CurOrdersFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<OrdersItem> call, Throwable t) {
+            public void onFailure(Call<KitchenOrders> call, Throwable t) {
+
+                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
 
             }
         });

@@ -17,7 +17,7 @@ public interface JsonPlaceHolderApi {
 
     @FormUrlEncoded
     @POST("get_kitchen_current_orders")
-    Call<OrdersItem> getOrders(
+    Call<KitchenOrders> getOrders(
             @Field("kitchen") int kitchen
     );
 

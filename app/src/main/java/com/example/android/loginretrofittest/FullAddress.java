@@ -2,11 +2,13 @@ package com.example.android.loginretrofittest;
 
 public class FullAddress {
 
-    private String addressName, fullAddress, area, street, landMark;
-    private int floor, apartmentNumber, buildingNumber;
+    private String addressName, fullAddress, area, street, landMark, floor, apartmentNumber, buildingNumber;
     private float latitude, longitude;
 
-    public FullAddress(String addressName, String fullAddress, String area, String street, String landMark, int floor, int apartmentNumber, int buildingNumber, float latitude, float longitude) {
+    public FullAddress(String addressName, String fullAddress, String area,
+                       String street, String landMark, String floor, String apartmentNumber,
+                       String buildingNumber, float latitude, float longitude) {
+
         this.addressName = addressName;
         this.fullAddress = fullAddress;
         this.area = area;
@@ -39,15 +41,15 @@ public class FullAddress {
         return landMark;
     }
 
-    public int getFloor() {
+    public String getFloor() {
         return floor;
     }
 
-    public int getApartmentNumber() {
+    public String getApartmentNumber() {
         return apartmentNumber;
     }
 
-    public int getBuildingNumber() {
+    public String getBuildingNumber() {
         return buildingNumber;
     }
 

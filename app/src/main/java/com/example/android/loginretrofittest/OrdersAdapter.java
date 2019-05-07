@@ -49,9 +49,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 //        User user = mOrdersList.get(position);
 //
 
-        ordersViewHolder.textViewOrderId.setText(orders.getOrderId());
+        ordersViewHolder.textViewOrderId.setText(String.valueOf(orders.getOrderId()));
         ordersViewHolder.textViewLocation.setText(orders.getLocation());
-        ordersViewHolder.textViewSubtotal.setText(orders.getSubtotal());
+        ordersViewHolder.textViewSubtotal.setText(String.valueOf(orders.getSubtotal()));
 
 //        ordersViewHolder.textViewDishType.setText(dishes.getType());
 //        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
