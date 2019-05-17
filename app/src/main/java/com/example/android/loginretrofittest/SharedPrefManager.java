@@ -10,6 +10,8 @@ public class SharedPrefManager {
     private static final String KEY_ID = "id";
     private static final String KEY_TYPE = "type";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_AREA = "area";
+    private static final String KEY_KITCHEN = "kitchen";
 
 
     private static SharedPrefManager mInstance;
@@ -45,6 +47,8 @@ public class SharedPrefManager {
         editor.putInt(KEY_ID, user.getId());
         editor.putInt(KEY_TYPE, user.getType());
         editor.putString(KEY_USERNAME, user.getUsername());
+        editor.putInt(KEY_AREA, user.getArea());
+        editor.putInt(KEY_KITCHEN, user.getKitchen());
         editor.apply();
 
     }
@@ -64,7 +68,9 @@ public class SharedPrefManager {
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
                 sharedPreferences.getInt(KEY_TYPE, -1),
-                sharedPreferences.getString(KEY_USERNAME, null)
+                sharedPreferences.getString(KEY_USERNAME, null),
+                sharedPreferences.getInt(KEY_AREA, -1),
+                sharedPreferences.getInt(KEY_KITCHEN, -1)
         );
     }
 

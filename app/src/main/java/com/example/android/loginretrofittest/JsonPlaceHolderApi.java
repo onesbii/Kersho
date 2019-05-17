@@ -17,9 +17,23 @@ public interface JsonPlaceHolderApi {
 
     @FormUrlEncoded
     @POST("get_kitchen_current_orders")
-    Call<KitchenOrders> getOrders(
+    Call<KitchenOrders> getKetCurOrders(
             @Field("kitchen") int kitchen
     );
+
+    @POST("get_all_current_orders")
+    Call<KitchenOrders> getAllCurOrders();
+
+    @FormUrlEncoded
+    @POST("get_kitchen_old_orders")
+    Call<KitchenOrders> getKetOldOrders(
+            @Field("kitchen") int kitchen
+    );
+
+    @POST("get_all_old_orders")
+    Call<KitchenOrders> getAllOldOrders();
+
+
 
 
 //    @FormUrlEncoded

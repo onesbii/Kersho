@@ -42,7 +42,7 @@ public class CurOrdersFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 //        Call<OrdersItem> call = RetrofitClient.getInstance().getApi().getOrders("Main Dish", "Maadi");
-        Call<KitchenOrders> call = RetrofitClient.getInstance().getApi().getOrders(3);
+        Call<KitchenOrders> call = RetrofitClient.getInstance().getApi().getAllCurOrders();
         call.enqueue(new Callback<KitchenOrders>() {
 
             @Override

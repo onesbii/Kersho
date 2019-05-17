@@ -9,11 +9,17 @@ public class User {
 
     private String username;
 
+    private int area;
 
-    public User(int id, int type, String username) {
+    private int kitchen;
+
+
+    public User(int id, int type, String username, int area, int kitchen) {
         this.id = id;
         this.type = type;
         this.username = username;
+        this.area = area;
+        this.kitchen = kitchen;
     }
 
     public int getId() {
@@ -27,4 +33,8 @@ public class User {
     public String getUsername() {
         return username;
     }
+
+    public int getArea() { return area; }
+
+    public int getKitchen() { return kitchen; }
 }
