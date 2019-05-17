@@ -1,7 +1,9 @@
 package com.example.android.loginretrofittest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,6 +59,17 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 //        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
 //        ordersViewHolder.textViewDishLocation.setText(dishes.getLocation());
 
+        ordersViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mContext, OrderDetailsActivity.class);
+                mContext.startActivity(intent);
+
+//TODO: check activity flags
+            }
+        });
+
     }
 
     @Override
@@ -76,6 +89,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 //        public TextView textViewDishName;
 //        public TextView textViewDishLocation;
 
+        public CardView cardView;
+
 
         public OrdersViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +103,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 //            textViewDishType = itemView.findViewById(R.id.textViewDishType);
 //            textViewDishName = itemView.findViewById(R.id.textViewDishName);
 //            textViewDishLocation = itemView.findViewById(R.id.textViewDishLocation);
+            cardView = itemView.findViewById(R.id.cardViewId);
 
         }
     }
