@@ -2,18 +2,14 @@ package com.example.android.loginretrofittest;
 
 public class Dishes {
 
-    private String type;
     private String dishName;
     private String location;
+    private int kitchen;
 
-    public Dishes(String type, String dishName, String location) {
-        this.type = type;
+    public Dishes(String dishName, String location, int kitchen) {
         this.dishName = dishName;
         this.location = location;
-    }
-
-    public String getType() {
-        return type;
+        this.kitchen = kitchen;
     }
 
     public String getDishName() {
@@ -22,5 +18,9 @@ public class Dishes {
 
     public String getLocation() {
         return location;
+    }
+
+    public int getKitchen() {
+        return kitchen;
     }
 }

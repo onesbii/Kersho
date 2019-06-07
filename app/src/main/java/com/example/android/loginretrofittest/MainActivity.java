@@ -133,3 +133,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 
+//TODO: remove result text view here anf from layout
+
