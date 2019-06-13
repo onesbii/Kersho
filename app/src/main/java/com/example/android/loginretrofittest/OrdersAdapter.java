@@ -2,6 +2,7 @@ package com.example.android.loginretrofittest;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +46,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     public void onBindViewHolder(@NonNull OrdersViewHolder ordersViewHolder, final int position) {
 
         //TODO comment name and uncomment orders
-        Orders orders = ordersList.get(position);
+        final Orders orders = ordersList.get(position);
 //        Dishes dishes = dishesList.get(position);
 
 //        User user = mOrdersList.get(position);
@@ -63,8 +64,10 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             @Override
             public void onClick(View view) {
 
+
                 Intent intent = new Intent(mContext, OrderDetailsActivity.class);
-                intent.putExtra("OrderId", ordersList.get(position).getOrderId());
+                Bundle bundle = new Bundle();
+                bundle.putInt("OrderId", ordersList.get(position).getOrderId());
                 mContext.startActivity(intent);
 
 //TODO: check activity flags

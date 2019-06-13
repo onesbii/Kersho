@@ -19,8 +19,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Dishes> dishesList;
     private DishesAdapter dishesAdapter;
-    Intent intent = getIntent();
-    int OrderId = intent.getIntExtra("OrderId", -1);
+//    Intent intent = getIntent();
+//    int OrderId = intent.getIntExtra("OrderId", 0);
 //    int OrderId = intent.getExtras().getInt("OrderId");
 
 
@@ -39,24 +39,29 @@ public class OrderDetailsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            int OrderId = extras.getInt("OrderId");
 
-        Call<DishesItem> call = RetrofitClient.getInstance().getApi().getDishesItem(OrderId);
-        call.enqueue(new Callback<DishesItem>() {
-            @Override
-            public void onResponse(Call<DishesItem> call, Response<DishesItem> response) {
 
-                dishesList = response.body().getDishes();
-                dishesAdapter = new DishesAdapter(OrderDetailsActivity.this, dishesList);
-                recyclerView.setAdapter(dishesAdapter);
+            Call<DishesItem> call = RetrofitClient.getInstance().getApi().getDishesItem(OrderId);
+            call.enqueue(new Callback<DishesItem>() {
+                @Override
+                public void onResponse(Call<DishesItem> call, Response<DishesItem> response) {
 
-            }
+                    dishesList = response.body().getDishes();
+                    dishesAdapter = new DishesAdapter(OrderDetailsActivity.this, dishesList);
+                    recyclerView.setAdapter(dishesAdapter);
 
-            @Override
-            public void onFailure(Call<DishesItem> call, Throwable t) {
+                }
 
-                Toast.makeText(OrderDetailsActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                @Override
+                public void onFailure(Call<DishesItem> call, Throwable t) {
 
-            }
-        });
+                    Toast.makeText(OrderDetailsActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            });
+        }
     }
 }
