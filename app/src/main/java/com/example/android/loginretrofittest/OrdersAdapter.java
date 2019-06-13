@@ -42,7 +42,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrdersViewHolder ordersViewHolder, int position) {
+    public void onBindViewHolder(@NonNull OrdersViewHolder ordersViewHolder, final int position) {
 
         //TODO comment name and uncomment orders
         Orders orders = ordersList.get(position);
@@ -64,6 +64,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext, OrderDetailsActivity.class);
+                intent.putExtra("OrderId", ordersList.get(position).getOrderId());
                 mContext.startActivity(intent);
 
 //TODO: check activity flags

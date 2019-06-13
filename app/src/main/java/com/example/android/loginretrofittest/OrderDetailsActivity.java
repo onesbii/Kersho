@@ -1,5 +1,6 @@
 package com.example.android.loginretrofittest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,12 +19,18 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Dishes> dishesList;
     private DishesAdapter dishesAdapter;
+    Intent intent = getIntent();
+    int OrderId = intent.getIntExtra("OrderId", -1);
+//    int OrderId = intent.getExtras().getInt("OrderId");
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
+
+
+        dishesDetails();
 
     }
 
@@ -32,7 +39,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Call<DishesItem> call = RetrofitClient.getInstance().getApi().getDishesItem(2);
+
+        Call<DishesItem> call = RetrofitClient.getInstance().getApi().getDishesItem(OrderId);
         call.enqueue(new Callback<DishesItem>() {
             @Override
             public void onResponse(Call<DishesItem> call, Response<DishesItem> response) {
