@@ -19,8 +19,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Dishes> dishesList;
     private DishesAdapter dishesAdapter;
-//    Intent intent = getIntent();
-//    int OrderId = intent.getIntExtra("OrderId", 0);
 //    int OrderId = intent.getExtras().getInt("OrderId");
 
 
@@ -39,9 +37,12 @@ public class OrderDetailsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            int OrderId = extras.getInt("OrderId");
+        Intent intent = getIntent();
+        int OrderId = intent.getIntExtra("OrderId", 0);
+
+//        Bundle extras = getIntent().getExtras();
+//        if (intent != null) {
+//            int OrderId = extras.getInt("OrderId");
 
 
             Call<DishesItem> call = RetrofitClient.getInstance().getApi().getDishesItem(OrderId);
@@ -62,6 +63,6 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
                 }
             });
-        }
+//        }
     }
 }

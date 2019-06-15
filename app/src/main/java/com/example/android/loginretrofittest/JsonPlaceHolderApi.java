@@ -34,9 +34,10 @@ public interface JsonPlaceHolderApi {
     Call<KitchenOrders> getAllOldOrders(
     );
 
+    @FormUrlEncoded
     @POST("get_order_dishes")
     Call<DishesItem> getDishesItem(
-            @Field("orederId") int orderId
+            @Field("order_id") int orderId
     );
 
 

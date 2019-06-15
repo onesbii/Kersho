@@ -66,8 +66,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 
 
                 Intent intent = new Intent(mContext, OrderDetailsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("OrderId", ordersList.get(position).getOrderId());
+                intent.putExtra("OrderId", orders.getOrderId());
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("OrderId", ordersList.get(position).getOrderId());
                 mContext.startActivity(intent);
 
 //TODO: check activity flags
