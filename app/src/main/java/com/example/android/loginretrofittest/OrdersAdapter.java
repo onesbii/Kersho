@@ -1,5 +1,6 @@
 package com.example.android.loginretrofittest;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +18,11 @@ import java.util.List;
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersViewHolder> {
 
     private Context mContext;
-//TODO replace 'User' with 'OrdersItem'
+
     //private List<OrdersItem> OrdersList;
     private List<Orders> ordersList;
 //    private List<Dishes> dishesList;
-//TODO replace 'User' with 'OrdersItem'
+
 
 
     public OrdersAdapter(Context mContext, List<Orders> mOrdersList) {
@@ -42,6 +43,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
         return new OrdersViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull OrdersViewHolder ordersViewHolder, final int position) {
 
@@ -53,26 +55,34 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
         int statusValue = orders.getStatus();
 
         ordersViewHolder.textViewOrderId.setText(String.valueOf(orders.getOrderId()));
-        ordersViewHolder.textViewLocation.setText(orders.getLocation());
+        ordersViewHolder.textViewCreationTime.setText(orders.getCreationTime());
 //        ordersViewHolder.textViewSubtotal.setText(String.valueOf(orders.getSubtotal()));
 //        ordersViewHolder.textViewStatus.setText(String.valueOf(orders.getStatus()));
         switch (statusValue){
             case 0:
                 ordersViewHolder.textViewStatus.setText("Waiting");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorWaiting);
                 break;
             case 1:
                 ordersViewHolder.textViewStatus.setText("Cooking");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorCooking);
                 break;
             case 2:
                 ordersViewHolder.textViewStatus.setText("Delivered");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorDelivered);
                 break;
             case 3:
                 ordersViewHolder.textViewStatus.setText("Canceled");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorCanceled);
                 break;
             default:
                 ordersViewHolder.textViewStatus.setText("Waiting");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorWaiting);
                 break;
         }
+
+        //TODO: the delivered status appears in current fragment
+        //TODO: serialize all underscores like creation_time
 
 //        ordersViewHolder.textViewDishType.setText(dishes.getType());
 //        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
@@ -105,7 +115,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     public class OrdersViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textViewOrderId;
-        public TextView textViewLocation;
+        public TextView textViewCreationTime;
 //        public TextView textViewSubtotal;
         public TextView textViewStatus;
 
@@ -120,7 +130,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             super(itemView);
 
             textViewOrderId = itemView.findViewById(R.id.textViewOrderId);
-            textViewLocation = itemView.findViewById(R.id.textViewLocation);
+            textViewCreationTime = itemView.findViewById(R.id.textViewCreationTime);
 //            textViewSubtotal = itemView.findViewById(R.id.textViewSubtotal);
             textViewStatus = itemView.findViewById(R.id.textViewStatus);
 

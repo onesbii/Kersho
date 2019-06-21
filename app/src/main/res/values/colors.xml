@@ -5,4 +5,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorWaiting">#2196f3</color>
+    <color name="colorCooking">#ffc107</color>
+    <color name="colorDelivered">#4caf50</color>
+    <color name="colorCanceled">#f44336</color>
 </resources>
