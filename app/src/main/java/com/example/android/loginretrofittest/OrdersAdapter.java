@@ -50,11 +50,29 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 //        Dishes dishes = dishesList.get(position);
 
 //        User user = mOrdersList.get(position);
-//
+        int statusValue = orders.getStatus();
 
         ordersViewHolder.textViewOrderId.setText(String.valueOf(orders.getOrderId()));
         ordersViewHolder.textViewLocation.setText(orders.getLocation());
-        ordersViewHolder.textViewSubtotal.setText(String.valueOf(orders.getSubtotal()));
+//        ordersViewHolder.textViewSubtotal.setText(String.valueOf(orders.getSubtotal()));
+//        ordersViewHolder.textViewStatus.setText(String.valueOf(orders.getStatus()));
+        switch (statusValue){
+            case 0:
+                ordersViewHolder.textViewStatus.setText("Waiting");
+                break;
+            case 1:
+                ordersViewHolder.textViewStatus.setText("Cooking");
+                break;
+            case 2:
+                ordersViewHolder.textViewStatus.setText("Delivered");
+                break;
+            case 3:
+                ordersViewHolder.textViewStatus.setText("Canceled");
+                break;
+            default:
+                ordersViewHolder.textViewStatus.setText("Waiting");
+                break;
+        }
 
 //        ordersViewHolder.textViewDishType.setText(dishes.getType());
 //        ordersViewHolder.textViewDishName.setText(dishes.getDishName());
@@ -88,7 +106,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 
         public TextView textViewOrderId;
         public TextView textViewLocation;
-        public TextView textViewSubtotal;
+//        public TextView textViewSubtotal;
+        public TextView textViewStatus;
 
 //        public TextView textViewDishType;
 //        public TextView textViewDishName;
@@ -102,7 +121,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
 
             textViewOrderId = itemView.findViewById(R.id.textViewOrderId);
             textViewLocation = itemView.findViewById(R.id.textViewLocation);
-            textViewSubtotal = itemView.findViewById(R.id.textViewSubtotal);
+//            textViewSubtotal = itemView.findViewById(R.id.textViewSubtotal);
+            textViewStatus = itemView.findViewById(R.id.textViewStatus);
 
 
 //            textViewDishType = itemView.findViewById(R.id.textViewDishType);
