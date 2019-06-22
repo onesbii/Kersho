@@ -1,13 +1,13 @@
 package com.example.android.loginretrofittest;
 
-public class FullAddress {
+public class Address {
 
     private String addressName, fullAddress, area, street, landMark, floor, apartmentNumber, buildingNumber;
     private float latitude, longitude;
 
-    public FullAddress(String addressName, String fullAddress, String area,
-                       String street, String landMark, String floor, String apartmentNumber,
-                       String buildingNumber, float latitude, float longitude) {
+    public Address(String addressName, String fullAddress, String area,
+                   String street, String landMark, String floor, String apartmentNumber,
+                   String buildingNumber, float latitude, float longitude) {
 
         this.addressName = addressName;
         this.fullAddress = fullAddress;

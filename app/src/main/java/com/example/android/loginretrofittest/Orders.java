@@ -4,10 +4,10 @@ public class Orders {
 
         private int orderId, subtotal, delivery, total, discount, status, phone;
         private String location, orderTime, creation_time, kitchen;
-        private FullAddress fullAddress;
+        private Address fullAddress;
 
         public Orders(int orderId, int subtotal, int delivery, int total, int discount, int status, int phone,
-                      String location, String orderTime, String creation_time, String kitchen, FullAddress fullAddress) {
+                      String location, String orderTime, String creation_time, String kitchen, Address fullAddress) {
             this.orderId = orderId;
             this.subtotal = subtotal;
             this.delivery = delivery;
@@ -66,7 +66,7 @@ public class Orders {
             return kitchen;
         }
 
-        public FullAddress getFullAddress() {
+        public Address getFullAddress() {
             return fullAddress;
         }
     }

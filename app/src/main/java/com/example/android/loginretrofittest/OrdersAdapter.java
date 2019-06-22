@@ -68,10 +68,14 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
                 ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorCooking);
                 break;
             case 2:
+                ordersViewHolder.textViewStatus.setText("Ready");
+                ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorReady);
+                break;
+            case 3:
                 ordersViewHolder.textViewStatus.setText("Delivered");
                 ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorDelivered);
                 break;
-            case 3:
+            case 4:
                 ordersViewHolder.textViewStatus.setText("Canceled");
                 ordersViewHolder.textViewStatus.setBackgroundResource(R.color.colorCanceled);
                 break;
