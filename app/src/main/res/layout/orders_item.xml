@@ -35,23 +35,23 @@
 
 
             <TextView
-                android:id="@+id/textCreationTime"
+                android:id="@+id/textOrderTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Creation Time"
+                android:text="Order Time"
                 android:layout_margin="2dp"
                 android:padding="4dp"
                 android:layout_centerHorizontal="true"/>
 
             <TextView
-                android:id="@+id/textViewCreationTime"
+                android:id="@+id/textViewOrderTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Creation Time"
+                android:text="Order Time"
                 android:layout_margin="2dp"
                 android:padding="4dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/textCreationTime"/>
+                android:layout_below="@id/textOrderTime"/>
 
 
             <TextView

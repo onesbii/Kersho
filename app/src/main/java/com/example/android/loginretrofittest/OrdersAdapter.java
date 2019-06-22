@@ -55,7 +55,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
         int statusValue = orders.getStatus();
 
         ordersViewHolder.textViewOrderId.setText(String.valueOf(orders.getOrderId()));
-        ordersViewHolder.textViewCreationTime.setText(orders.getCreationTime());
+        ordersViewHolder.textViewOrderTime.setText(orders.getOrderTime());
 //        ordersViewHolder.textViewSubtotal.setText(String.valueOf(orders.getSubtotal()));
 //        ordersViewHolder.textViewStatus.setText(String.valueOf(orders.getStatus()));
         switch (statusValue){
@@ -119,7 +119,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
     public class OrdersViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textViewOrderId;
-        public TextView textViewCreationTime;
+        public TextView textViewOrderTime;
 //        public TextView textViewSubtotal;
         public TextView textViewStatus;
 
@@ -134,7 +134,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.OrdersView
             super(itemView);
 
             textViewOrderId = itemView.findViewById(R.id.textViewOrderId);
-            textViewCreationTime = itemView.findViewById(R.id.textViewCreationTime);
+            textViewOrderTime = itemView.findViewById(R.id.textViewOrderTime);
 //            textViewSubtotal = itemView.findViewById(R.id.textViewSubtotal);
             textViewStatus = itemView.findViewById(R.id.textViewStatus);
 
